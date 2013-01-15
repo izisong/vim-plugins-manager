@@ -1,8 +1,7 @@
 vim-plugins-manager
 ===================
 ## 关于
-[vim-plugins-manager] 是一个使用[bundle]管理vim插件和配置文件的工具。
-manage the plugins of vim and the config file
+[vim-plugins-manager] 是一个使用[vundle]管理vim插件和定义一个常用配置文件的工具。
 
 ## 快速使用
 
@@ -49,3 +48,12 @@ manage the plugins of vim and the config file
       ```
 
    如果不需要使用ctags,cscope,taglist插件，请将.vimrc中与其相关的配置行注释掉，或者删除，否则会影响vim的正常打开。
+
+
+## 此vim配置文件下，vim的使用简介
+
+1. 在vim普通模式下，按F2，在vim窗口左侧打开文件目录树。再次按F2，隐藏左侧窗口。
+2. 在vim普通模式下，按F12，在vim窗口右侧打开当前编辑文件的函数列表。再次按F12，隐藏右侧窗口。
+3. 在vim普通模式下，按F3，进入粘贴模式，此时对编辑文件粘贴文本，可以以复制时的格式粘贴，不会出现自动换行，以致排版出错。再次按F3，退出粘贴模式。
+4. 按ctrl+ww，实现从当前窗口跳转到下一窗口；按ctrl+wh，实现从当前窗口，跳转到其左侧窗口。
+5. ctags，cscope可以实现函数调转等强大功能。其使用见XX。
