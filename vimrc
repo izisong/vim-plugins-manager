@@ -1,3 +1,7 @@
+"使vim可以正常打开各种中文编码的文件
+let &termencoding=&encoding
+set fileencodings=utf-8,gb18030,gbk,gb2312
+
 "显示行号
 set number
 "设置不显示行号的快捷键
@@ -7,6 +11,10 @@ syntax on
 "在状态栏显示正在输入的命令
 set showcmd
 "默认缩进设置为4个字符大小
+set shiftwidth=4
+"设置自动缩进
+set autoindent
+"设置制表符宽度
 set tabstop=4
 "设置命令行的高度
 set cmdheight=3
