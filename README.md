@@ -15,6 +15,7 @@ vim-plugins-manager
 
       ```
       $ cd .vim
+      ~/.vim$ git submodule init
       ~/.vim$ git submodule update
       ```
 
