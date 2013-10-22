@@ -16,6 +16,9 @@ set shiftwidth=4
 set autoindent
 "设置制表符宽度
 set tabstop=4
+"python tab->4spaces 
+filetype indent on
+autocmd FileType python setlocal et sta sw=4 sts=4
 "设置命令行的高度
 set cmdheight=3
 "设置进入粘贴模式的快捷键，可以避免window下复制的内容在vim里粘贴自动换行的问题
@@ -25,6 +28,42 @@ set pastetoggle=<F3>
 set foldmethod=syntax
 set foldlevelstart=99
 
+" Indent Python in the Google way.
+
+setlocal indentexpr=GetGooglePythonIndent(v:lnum)
+
+let s:maxoff = 50 " maximum number of lines to look backwards.
+
+function GetGooglePythonIndent(lnum)
+
+  " Indent inside parens.
+  " Align with the open paren unless it is at the end of the line.
+  " E.g.
+  "   open_paren_not_at_EOL(100,
+  "                         (200,
+  "                          300),
+  "                         400)
+  "   open_paren_at_EOL(
+  "       100, 200, 300, 400)
+  call cursor(a:lnum, 1)
+  let [par_line, par_col] = searchpairpos('(\|{\|\[', '', ')\|}\|\]', 'bW',
+        \ "line('.') < " . (a:lnum - s:maxoff) . " ? dummy :"
+        \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
+        \ . " =~ '\\(Comment\\|String\\)$'")
+  if par_line > 0
+    call cursor(par_line, 1)
+    if par_col != col("$") - 1
+      return par_col
+    endif
+  endif
+
+  " Delegate the rest to the original function.
+  return GetPythonIndent(a:lnum)
+
+endfunction
+
+let pyindent_nested_paren="&sw*2"
+let pyindent_open_paren="&sw*2"
 
 "config NERDTREE
 "autocmd vimenter * NERDTree
