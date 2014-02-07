@@ -68,7 +68,7 @@ let pyindent_open_paren="&sw*2"
 "config NERDTREE
 "autocmd vimenter * NERDTree
 let NERDTreeWinPos = "left"
-let NERDTreeWinSize=32
+let NERDTreeWinSize=20
 let NERDTreeShowBookmarks=1
 map <silent> <F2> :NERDTreeToggle<cr>
 
@@ -182,6 +182,9 @@ Bundle 'ZenCoding.vim'
 "
 " original repos on github
 "Bundle 'tpope/vim-fugitive'
+Bundle 'tomtom/tlib_vim'
+Bundle 'vim-addon-mw-utils'
+Bundle 'garbas/vim-snipmate'
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Bundle 'tpope/vim-rails.git'
