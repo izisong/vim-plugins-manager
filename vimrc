@@ -1,4 +1,5 @@
 "使vim可以正常打开各种中文编码的文件
+set encoding=utf-8
 let &termencoding=&encoding
 set fileencodings=utf-8,gb18030,gbk,gb2312
 
